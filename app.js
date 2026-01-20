@@ -59,28 +59,28 @@
       type: "award",
       title: "Certificate",
       description: "Power BI Training",
-      images: ["../image (4).png"],
+      images: ["../images/cer1.png"],
     },
     {
       id: "award2",
       type: "award",
       title: "Certificate",
       description: "เข้าค่ายคณิตศาสตร์ที่ม.บูรพา",
-      images: ["../Image (2)_11zon.png"],
+      images: ["../images/cer2.png"],
     },
     {
       id: "award3",
       type: "award",
       title: "Certificate",
       description: "ใบ Certificate ของวิทยาลัยอีเทค",
-      images: ["../Image (3)_11zon.png"],
+      images: ["../images/cer3.png"],
     },
     {
       id: "award4",
       type: "award",
       title: "",
       description: "",
-      images: ["../Image (1).jpg"],
+      images: ["../images/cer4.jpg"],
     },
   ];
   const itemMap = new Map([...activitiesData, ...awardsData].map((a) => [a.id, a]));
