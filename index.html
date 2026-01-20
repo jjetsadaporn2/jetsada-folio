@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio | Jetsadaporn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <header class="topbar" aria-label="แถบนำทางด้านบน">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">J</div>
+      <div class="brand-text">
+        <div class="brand-title">PORTFOLIO</div>
+        <div class="brand-sub">สไลด์เลื่อนทีละหน้า</div>
+      </div>
+    </div>
+
+    <nav class="actions" aria-label="ปุ่มควบคุม">
+      <button class="btn ghost" id="btnPrev" type="button" aria-label="ก่อนหน้า (ลูกศรซ้าย/ขึ้น)">ก่อนหน้า</button>
+      <button class="btn" id="btnNext" type="button" aria-label="ถัดไป (ลูกศรขวา/ลง)">ถัดไป</button>
+    </nav>
+  </header>
+
+  <!-- Progress -->
+  <div class="progress" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Slides -->
+  <main class="deck" id="deck" aria-label="สไลด์พอร์ตโฟลิโอ">
+    <!-- 1: ปก -->
+    <section class="slide is-active theme-hero" data-title="ปก" aria-label="หน้าปก">
+      <div class="slide-inner grid-2">
+        <div class="stack">
+          <span class="pill">PORTFOLIO</span>
+          <h1 class="h-hero">Jetsadaporn Uanampon</h1>
+          <p class="lead">
+            นักศึกษาที่มุ่งพัฒนาทักษะด้านเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล
+          </p>
+
+          <div class="chips">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">PHP</span>
+            <span class="chip">Design</span>
+            <span class="chip">Analyst</span>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn" href="#/2">เริ่มดูพอร์ต</a>
+            <a class="btn ghost" href="#/3">ไปหน้าโปรไฟล์</a>
+          </div>
+
+          <p class="meta">
+            อีเมล: jetsadaporn.uanampon@gmail.com • โทร: 084-075-2102 • จังหวัด: ชลบุรี
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <div class="avatar" aria-label="รูปโปรไฟล์ (แทนที่ได้)"></div>
+          <div class="hint">
+            <kbd>←</kbd><kbd>→</kbd> หรือ Scroll / Swipe เพื่อเลื่อน
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: คำนำ -->
+    <section class="slide" data-title="คำนำ" aria-label="คำนำ">
+      <div class="slide-inner">
+        <h2 class="h2">About Me</h2>
+        <p class="lead">
+        Hello, my name is Film. I am 20 years old and currently studying in the Information Technology major. During my studies, I have gained experience in coding, system analysis, and UX/UI design. I am also learning how to create programs and develop projects by applying technology to solve real-world problems.
+I enjoy improving my skills through hands-on practice and exploring new technologies that enhance efficiency and creativity in digital solutions. I am a responsible person, eager to learn, and always open to new challenges.
+In my free time, I enjoy listening to music and coding, which helps me relax and stay inspired. I hope to use my knowledge and skills to grow as an IT professional and contribute positively to future projects and organizations.
+        </p>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3 class="h3">Target</h3>
+            <p>มีความตั้งใจพัฒนาทักษะและความรู้ด้านเทคโนโลยีสารสนเทศอย่างต่อเนื่อง 
+                เพื่อนำไปใช้ในการศึกษาและพัฒนาผลงานของตนเอง สามารถทำงานร่วมกับผู้อื่นได้ดี มีความรับผิดชอบ และพร้อมเรียนรู้ประสบการณ์ใหม่ ๆ 
+                เพื่อเติบโตทางด้านการศึกษาในอนาคต</p>
+          </article>
+          <article class="card">
+            <h3 class="h3">Highlights</h3>
+            <ul class="list">
+              <li>เรียนรู้เร็ว รับผิดชอบงาน</li>
+              <li>สื่อสารและทำงานเป็นทีม</li>
+              <li>ชอบปรับปรุงงานให้ดีขึ้นเสมอ</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="h3">สิ่งที่สนใจ</h3>
+            <div class="chips">
+              <span class="chip">เว็บแอป</span>
+              <span class="chip">ออกแบบ UI</span>
+              <span class="chip">ข้อมูล</span>
+              <span class="chip">AI</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3: โปรไฟล์ -->
+    <section class="slide" data-title="โปรไฟล์" aria-label="โปรไฟล์">
+      <div class="slide-inner grid-2">
+        <div class="profile-left">
+          <h2 class="h2">Profile</h2>
+          <p class="lead">ข้อมูลพื้นฐานและทักษะโดยสรุป</p>
+
+          <div class="info">
+            <div class="info-row"><span class="label">ชื่อ</span><span class="value">Jetsadaporn Uanampon</span></div>
+            <div class="info-row"><span class="label">วันเกิด</span><span class="value">06/01/2006</span></div>
+            <div class="info-row"><span class="label">อีเมล</span><span class="value">jetsadaporn.uanampon@gmail.com</span></div>
+            <div class="info-row"><span class="label">โทร</span><span class="value">084-075-2102</span></div>
+            <div class="info-row"><span class="label">ที่อยู่</span><span class="value">138/8 ถนนเทศบาลพัฒนา1 ตำบลเหมือง <br> อำเภอเมือง จังหวัดชลบุรี</span></div>
+          </div>
+        </div>
+
+        <div class="profile-right">
+          <div class="card big">
+            <h3 class="h3">ทักษะ</h3>
+
+            <div class="skill-list">
+              <div class="skill-item">
+                <span class="skill-name">Coding ( Font-End Back-End )</span>
+                <span class="skill-level">เชี่ยวชาญ</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-level">ฝึกหัด</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Teamwork</span>
+                <span class="skill-level">ยอดเยี่ยม</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Database System Analysis</span>
+                <span class="skill-level">ยอดเยี่ยม</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Design UX - UI</span>
+                <span class="skill-level">พื้นฐาน</span>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3 class="h3">ซอฟต์สกิล</h3>
+            <div class="chips">
+              <span class="chip">สื่อสาร</span>
+              <span class="chip">นำเสนอ</span>
+              <span class="chip">วิเคราะห์ปัญหา</span>
+              <span class="chip">จัดการเวลา</span>
+              <span class="chip">รับฟัง</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4: การศึกษา -->
+    <section class="slide" data-title="การศึกษา" aria-label="การศึกษา">
+      <div class="slide-inner">
+        <div class="edu-center">
+          <div class="edu-panel">
+            <div class="edu-wrap">
+              <div class="edu-rail" aria-hidden="true">
+                <div class="edu-square"></div>
+                <div class="edu-line"></div>
+              </div>
+              <div class="edu-content">
+                <h2 class="h2 edu-title">EDUCATION</h2>
+                <div class="edu-list">
+                  <div class="edu-item edu-item-card">
+                    <div class="edu-year">2024 - 2026</div>
+                    <div class="edu-school">Thai Austrian Technical College</div>
+                    <ul class="edu-bullets">
+                      <li>Information Technology</li>
+                      <li>(GPA): 3.1</li>
+                      <li>Relevant coursework: Web Development, Database, Network Fundamentals</li>
+                    </ul>
+                  </div>
+                  <div class="edu-item edu-item-card">
+                    <div class="edu-year">2021 - 2024</div>
+                    <div class="edu-school">Eastern Technological College</div>
+                    <ul class="edu-bullets">
+                      <li>Business Computer</li>
+                      <li>(GPA): 3.7</li>
+                      <li>Relevant coursework: Programming Basics, Office Automation, Data Management</li>
+                    </ul>
+                  </div>
+                  <div class="edu-item edu-item-card">
+                    <div class="edu-year">2013 - 2021</div>
+                    <div class="edu-school">Watratsattha School</div>
+                    <ul class="edu-bullets">
+                      <li>Secondary Education</li>
+                      <li>Activities: Computer Club / Basic ICT Projects</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5: ประสบการณ์ทำงาน -->
+    <section class="slide" data-title="ประสบการณ์ทำงาน" aria-label="ประสบการณ์ทำงาน">
+      <div class="slide-inner">
+        <div class="exp-center">
+          <div class="exp-panel">
+            <h2 class="h2 exp-title">Internship Experience</h2>
+            <div class="card-grid exp-grid">
+              <article class="card exp-card">
+                <div class="badge">Internship</div>
+                <h3 class="h3">ตำแหน่ง: Internship</h3>
+                <p class="muted">บริษัท: Toyota Motor Asia <br> ระยะเวลา: 8 เดือน</p>
+                <ul class="list">
+                  <li>ทำหน้าที่: ได้รับมอบหมาย Project ให้ทำ Application  เกี่ยวกับการขอปรับราคาสินค้า และ สร้างระบบอัตโนมัติต่างๆใน Project </li>
+                  <li>เครื่องมือ: Power Apps / Power Automate / Power BI / Sharepoint</li>
+                  <li>ผลลัพธ์: ลดเวลา/เพิ่มคุณภาพงาน</li>
+                </ul>
+              </article>
+
+              <article class="card exp-card">
+                <div class="badge">Internship</div>
+                <h3 class="h3">ตำแหน่ง: Internship</h3>
+                <p class="muted">บริษัท: LecasaBangSaen Hotel <br> ระยะเวลา: 4 เดือน</p>
+                <ul class="list">
+                  <li>Welcome clients
+                    Signed the information a database
+                    Served food and beverage</li>
+                </ul>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6: กิจกรรม -->
+    <section class="slide" data-title="กิจกรรม" aria-label="กิจกรรม">
+      <div class="slide-inner">
+        <h2 class="h2">Activities</h2>
+
+        <div class="activity-grid">
+          <article class="activity-card" data-item="act1">
+            <div class="activity-thumb">
+              <img src="../images/ac2.png" alt="ภาพกิจกรรม 1" loading="lazy" />
+            </div>
+            <button class="btn ghost activity-btn" type="button">ดูรายละเอียด</button>
+          </article>
+
+          <article class="activity-card" data-item="act2">
+            <div class="activity-thumb">
+              <img src="../images/ac2.png" alt="ภาพกิจกรรม 2" loading="lazy" />
+            </div>
+            <button class="btn ghost activity-btn" type="button">ดูรายละเอียด</button>
+          </article>
+
+          <article class="activity-card" data-item="act3">
+            <div class="activity-thumb">
+              <img src="../images/ac2.png" alt="ภาพกิจกรรม 3" loading="lazy" />
+            </div>
+            <button class="btn ghost activity-btn" type="button">ดูรายละเอียด</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8: เกียรติบัติ -->
+    <section class="slide" data-title="เกียรติบัติ" aria-label="เกียรติบัติ">
+      <div class="slide-inner">
+        <h2 class="h2">Certificate</h2>
+
+        <div class="activity-grid">
+          <article class="activity-card award-card" data-item="award1">
+            <div class="activity-thumb">
+              <img src="image (4).png" alt="ภาพเกียรติบัติ 1" loading="lazy" />
+            </div>
+            <button class="btn ghost activity-btn award-detail-btn" type="button">ดูรายละเอียด</button>
+          </article>
+
+          <article class="activity-card award-card" data-item="award2">
+            <div class="activity-thumb">
+              <img src="Image (2)_11zon.png" alt="ภาพเกียรติบัติ 2" loading="lazy" />
+            </div>
+            <button class="btn ghost activity-btn award-detail-btn" type="button">ดูรายละเอียด</button>
+          </article>
+
+          <article class="activity-card award-card" data-item="award3">
+            <div class="activity-thumb">
+              <img src="Image (3)_11zon.png" alt="ภาพเกียรติบัติ 3" loading="lazy" />
+            </div>
+            <button class="btn ghost activity-btn award-detail-btn" type="button">ดูรายละเอียด</button>
+          </article>
+
+          <article class="activity-card award-card" data-item="award4">
+            <div class="activity-thumb">
+              <img src="Image (1).jpg" alt="ภาพเกียรติบัติ 4" loading="lazy" />
+            </div>
+            <button class="btn ghost activity-btn award-detail-btn" type="button">ดูรายละเอียด</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9: ขอบคุณ -->
+    <section class="slide theme-thanks" data-title="ขอบคุณ" aria-label="ขอบคุณ">
+      <div class="slide-inner center">
+        <div class="thanks-card">
+          <h2 class="h2">Thank you</h2>
+          <p class="lead">
+            ขอบคุณที่สละเวลาอ่านพอร์ตโฟลิโอนี้ หากต้องการข้อมูลเพิ่มเติมสามารถติดต่อได้ทางช่องทางด้านล่าง
+          </p>
+
+          <div class="contact">
+            <div class="contact-item"><span class="c-label">อีเมล</span><span class="c-val">jetsadaporn.uanampon@gmail.com</span></div>
+            <div class="contact-item"><span class="c-label">โทร</span><span class="c-val">084-075-2102</span></div>
+          </div>
+
+          <div class="cta-row">
+            <button class="btn" id="btnStartOver" type="button">กลับไปหน้าปก</button>
+            <button class="btn ghost" id="btnCopyLink" type="button">คัดลอกลิงก์หน้านี้</button>
+          </div>
+
+          <p class="meta muted">© <span id="year"></span> Jetsadaporn Uanampon • Portfolio Slide Web</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="activityModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="activityModalTitle">
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="ปิดหน้าต่าง">×</button>
+      <div class="modal-content">
+        <h3 class="h3 modal-title" id="activityModalTitle"></h3>
+        <p class="muted modal-desc" id="activityModalDesc"></p>
+        <div class="modal-gallery">
+          <div class="modal-main">
+            <button class="modal-nav prev" type="button" aria-label="รูปก่อนหน้า">‹</button>
+            <img id="activityModalImage" src="" alt="" />
+            <button class="modal-nav next" type="button" aria-label="รูปถัดไป">›</button>
+          </div>
+          <div class="modal-thumbs" id="activityModalThumbs" aria-label="ภาพตัวอย่าง"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dots -->
+  <aside class="dots" id="dots" aria-label="ตัวบอกหน้าสไลด์"></aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
