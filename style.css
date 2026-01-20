@@ -1,22 +1,52 @@
 :root{
-  --bg: #F8F3D9;
-  --bg2: #EBE5C2;
-  --panel: #EBE5C2;
-  --card: #F8F3D9;
-  --card2: #F8F3D9;
-  --stroke: rgba(80,75,56,.28);
-  --stroke-strong: rgba(80,75,56,.45);
-  --text: #504B38;
-  --muted: rgba(80,75,56,.72);
-  --shadow: rgba(80,75,56,.18);
-  --shadow-strong: rgba(80,75,56,.28);
-  --border: rgba(80,75,56,.28);
-  --border-strong: rgba(80,75,56,.45);
-  --glow: rgba(185,178,138,.55);
-  --panel-glow: rgba(185,178,138,.25);
-  --glass: rgba(248,243,217,.75);
-  --noise: rgba(80,75,56,.06);
-  --pattern: rgba(80,75,56,.08);
+  --dark: #1D1616;
+  --wine: #8E1616;
+  --red: #D84040;
+  --light: #EEEEEE;
+
+  --bg: #1D1616;
+  --bg2: #1D1616;
+  --panel: #1D1616;
+  --card: #1D1616;
+  --card2: #1D1616;
+  --text: #EEEEEE;
+  --muted: rgba(238,238,238,0.7);
+  --border: rgba(238,238,238,0.18);
+  --border-strong: rgba(238,238,238,0.35);
+  --shadow: rgba(0,0,0,0.45);
+  --shadow-strong: rgba(0,0,0,0.6);
+  --shadow-soft: rgba(0,0,0,0.3);
+  --shadow-mid: rgba(0,0,0,0.4);
+  --glow: rgba(216,64,64,0.45);
+  --panel-glow: rgba(216,64,64,0.25);
+  --glass: rgba(29,22,22,0.75);
+  --noise: rgba(238,238,238,0.06);
+  --pattern: rgba(238,238,238,0.08);
+
+  --light-08: rgba(238,238,238,0.08);
+  --light-10: rgba(238,238,238,0.1);
+  --light-12: rgba(238,238,238,0.12);
+  --light-14: rgba(238,238,238,0.14);
+  --light-15: rgba(238,238,238,0.15);
+  --light-18: rgba(238,238,238,0.18);
+  --light-20: rgba(238,238,238,0.2);
+  --light-25: rgba(238,238,238,0.25);
+  --light-35: rgba(238,238,238,0.35);
+  --light-40: rgba(238,238,238,0.4);
+  --light-45: rgba(238,238,238,0.45);
+  --light-50: rgba(238,238,238,0.5);
+  --light-55: rgba(238,238,238,0.55);
+
+  --accent: #8E1616;
+  --accent-2: #D84040;
+  --accent-08: rgba(216,64,64,0.08);
+  --accent-14: rgba(216,64,64,0.14);
+  --accent-15: rgba(216,64,64,0.15);
+  --accent-18: rgba(216,64,64,0.18);
+  --accent-25: rgba(216,64,64,0.25);
+  --accent-35: rgba(216,64,64,0.35);
+  --accent-55: rgba(216,64,64,0.55);
+  --accent-0: rgba(216,64,64,0);
 
   --radius: 26px;
   --radius2: 18px;
@@ -24,10 +54,11 @@
   --pad: clamp(18px, 2.2vw, 28px);
   --max: 1100px;
 
-  --accent: #B9B28A;
-  --accent-2: #504B38;
-  --chip-bg: #EBE5C2;
-  --chip-active: #B9B28A;
+  --chip-bg: #1D1616;
+  --chip-active: #8E1616;
+  --stroke: rgba(238,238,238,0.18);
+  --stroke-strong: rgba(238,238,238,0.35);
+  --overlay: rgba(0,0,0,0.55);
 }
 
 *{ box-sizing:border-box; }
@@ -38,8 +69,8 @@ body{
   color: var(--text);
   font-size: 15px;
   background:
-    radial-gradient(circle at 1px 1px, rgba(80,75,56,.1) 1px, transparent 1px) 0 0 / 18px 18px,
-    linear-gradient(135deg, rgba(185,178,138,.08) 0%, transparent 45%),
+    radial-gradient(circle at 1px 1px, var(--light-10) 1px, transparent 1px) 0 0 / 18px 18px,
+    linear-gradient(135deg, var(--accent-08) 0%, transparent 45%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   overflow: hidden;
   position: relative;
@@ -54,13 +85,13 @@ body::after{
   border-radius: 60px;
 }
 body::before{
-  background: linear-gradient(135deg, rgba(185,178,138,.18), rgba(235,229,194,.18));
+  background: linear-gradient(135deg, var(--accent-18), var(--accent-18));
   opacity: .9;
   transform: translate3d(-6%, -4%, 0);
   animation: floatA 30s ease-in-out infinite;
 }
 body::after{
-  background: linear-gradient(140deg, rgba(235,229,194,.18), rgba(185,178,138,.14));
+  background: linear-gradient(140deg, var(--accent-18), var(--accent-14));
   opacity: .9;
   transform: translate3d(6%, 6%, 0);
   animation: floatB 34s ease-in-out infinite;
@@ -98,7 +129,7 @@ body::after{
   border-radius: 12px;
   display:grid; place-items:center;
   font-weight: 700;
-  color: #fff;
+  color: var(--light);
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   box-shadow: 0 12px 24px var(--shadow-strong);
 }
@@ -116,7 +147,7 @@ body::after{
   font-size: 12px;
   letter-spacing: .2px;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 8px 16px var(--shadow);
+  box-shadow: inset 0 1px 0 var(--light-40), 0 8px 16px var(--shadow);
 }
 .btn:not(.ghost){
   background: linear-gradient(135deg, var(--chip-bg), var(--accent));
@@ -126,13 +157,13 @@ body::after{
   transform: translateY(-1px);
   background: var(--accent-2);
   color: var(--bg);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 12px 20px var(--shadow-strong);
+  box-shadow: inset 0 1px 0 var(--light-20), 0 12px 20px var(--shadow-strong);
 }
 .btn:active{ transform: translateY(1px) scale(.99); }
 .btn:focus-visible{
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgba(185,178,138,.35);
+  box-shadow: 0 0 0 3px var(--accent-35);
 }
 .btn.ghost{
   background: var(--card);
@@ -223,7 +254,7 @@ body::after{
   border-radius: 999px;
   left: 6%;
   top: 12%;
-  background: radial-gradient(circle, rgba(185,178,138,.35), rgba(185,178,138,0));
+  background: radial-gradient(circle, var(--accent-35), var(--accent-0));
   animation: orbitA 18s ease-in-out infinite;
 }
 .slide::after{
@@ -232,7 +263,7 @@ body::after{
   right: 6%;
   bottom: 10%;
   border-radius: 28px;
-  background: conic-gradient(from 120deg, rgba(185,178,138,.15), rgba(80,75,56,.06), rgba(185,178,138,.18));
+  background: conic-gradient(from 120deg, var(--accent-15), var(--noise), var(--accent-18));
   animation: orbitB 22s ease-in-out infinite;
 }
 
@@ -245,8 +276,8 @@ body::after{
   border: 2px solid var(--border-strong);
   box-shadow:
     0 18px 40px var(--shadow-strong),
-    inset 0 1px 0 rgba(255,255,255,.55),
-    inset 0 0 0 1px rgba(80,75,56,.12);
+    inset 0 1px 0 var(--light-55),
+    inset 0 0 0 1px var(--light-12);
   position: relative;
   overflow: visible;
   z-index: 1;
@@ -276,7 +307,7 @@ body::after{
     linear-gradient(var(--border-strong), var(--border-strong)) 14px 14px / 2px 18px no-repeat,
     linear-gradient(var(--border-strong), var(--border-strong)) calc(100% - 32px) calc(100% - 16px) / 18px 2px no-repeat,
     linear-gradient(var(--border-strong), var(--border-strong)) calc(100% - 16px) calc(100% - 32px) / 2px 18px no-repeat,
-    linear-gradient(120deg, transparent 20%, rgba(185,178,138,.25) 50%, transparent 80%) -20% 18% / 200% 120px no-repeat;
+    linear-gradient(120deg, transparent 20%, var(--accent-25) 50%, transparent 80%) -20% 18% / 200% 120px no-repeat;
   opacity: .9;
   animation: sweep 14s ease-in-out infinite;
   z-index: 0;
@@ -285,9 +316,9 @@ body::after{
 .slide.is-active .slide-inner{
   box-shadow:
     0 18px 40px var(--shadow-strong),
-    inset 0 1px 0 rgba(255,255,255,.55),
-    inset 0 0 0 1px rgba(80,75,56,.12),
-    0 0 32px rgba(185,178,138,.35);
+    inset 0 1px 0 var(--light-55),
+    inset 0 0 0 1px var(--light-12),
+    0 0 32px var(--accent-35);
 }
 .slide.is-active .slide-inner::before{
   opacity: .7;
@@ -387,7 +418,7 @@ body::after{
   height: 3px;
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: 0 4px 10px rgba(185,178,138,.35);
+  box-shadow: 0 4px 10px var(--accent-35);
 }
 .h3{
   font-size: 14px;
@@ -438,7 +469,7 @@ body::after{
   border: 1.5px solid var(--border-strong);
   font-size: 12px;
   color: var(--text);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+  box-shadow: inset 0 1px 0 var(--light-35);
   transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
 }
 .slide[data-title="คำนำ"] .interest-card .chip--icon{
@@ -480,7 +511,7 @@ body::after{
   border-color: var(--accent-2);
   background: var(--chip-active);
   color: var(--accent-2);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 10px 20px var(--shadow-strong);
+  box-shadow: inset 0 1px 0 var(--light-20), 0 10px 20px var(--shadow-strong);
 }
 .chip:active{
   transform: translateY(0) scale(.98);
@@ -496,8 +527,8 @@ body::after{
   border-radius: var(--radius);
   box-shadow:
     0 12px 24px var(--shadow),
-    inset 0 0 0 1px rgba(80,75,56,.08),
-    inset 0 1px 0 rgba(255,255,255,.5);
+    inset 0 0 0 1px var(--pattern),
+    inset 0 1px 0 var(--light-50);
   backdrop-filter: blur(12px);
 }
 
@@ -512,7 +543,7 @@ body::after{
   position:absolute;
   inset: -40% 0 auto 0;
   height: 140%;
-  background: linear-gradient(120deg, transparent 25%, rgba(255,255,255,.4) 50%, transparent 75%);
+  background: linear-gradient(120deg, transparent 25%, var(--light-40) 50%, transparent 75%);
   opacity: 0;
   transform: translateX(-60%);
   transition: transform .6s ease, opacity .4s ease;
@@ -622,7 +653,7 @@ body::after{
   border-radius: 18px;
   background: url("png/image (5).png") center/cover;
   filter: grayscale(1) contrast(1.05);
-  box-shadow: 0 18px 34px rgba(80,75,56,.2);
+  box-shadow: 0 18px 34px var(--shadow-mid);
   transition: filter .4s ease, transform .6s ease;
   transform: scale(1.02);
 }
@@ -693,7 +724,7 @@ kbd{
   border-radius: var(--radius2);
   background: var(--card);
   border: 1.5px solid var(--stroke);
-  box-shadow: inset 0 0 0 1px rgba(80,75,56,.08);
+  box-shadow: inset 0 0 0 1px var(--pattern);
 }
 .slide[data-title="โปรไฟล์"] .profile-left .info{
   display: grid;
@@ -741,7 +772,7 @@ kbd{
   border: 1.5px solid var(--stroke);
   box-shadow:
     0 12px 24px var(--shadow),
-    inset 0 0 0 1px rgba(80,75,56,.08);
+    inset 0 0 0 1px var(--pattern);
   overflow: hidden;
   transition: transform .2s ease, box-shadow .2s ease;
 }
@@ -807,7 +838,7 @@ kbd{
   border-radius: 16px;
   background: var(--card);
   border: 1.5px solid var(--border);
-  box-shadow: inset 0 0 0 1px rgba(80,75,56,.08);
+  box-shadow: inset 0 0 0 1px var(--pattern);
   position: relative;
   overflow: hidden;
   min-height: 72px;
@@ -818,7 +849,7 @@ kbd{
   position:absolute;
   inset: -50% 0 auto 0;
   height: 150%;
-  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  background: linear-gradient(120deg, transparent 30%, var(--light-35) 50%, transparent 70%);
   opacity: 0;
   transform: translateX(-60%);
   transition: transform .6s ease, opacity .4s ease;
@@ -850,7 +881,7 @@ kbd{
   transform: translateY(-2px);
   box-shadow:
     0 14px 26px var(--shadow),
-    inset 0 0 0 1px rgba(80,75,56,.08);
+    inset 0 0 0 1px var(--pattern);
 }
 .skill-name{ color: var(--text); font-size: 12px; }
 .skill-level{
@@ -915,7 +946,7 @@ kbd{
   border: 1.5px solid var(--border);
   box-shadow:
     0 12px 24px var(--shadow),
-    inset 0 0 0 1px rgba(80,75,56,.08);
+    inset 0 0 0 1px var(--pattern);
 }
 .slide[data-title="การศึกษา"] .edu-image-card img{
   width: 100%;
@@ -1002,13 +1033,13 @@ kbd{
   border-radius: 14px;
   background: var(--card);
   border: 1.5px solid var(--border);
-  box-shadow: inset 0 0 0 1px rgba(80,75,56,.08);
+  box-shadow: inset 0 0 0 1px var(--pattern);
   transition: transform .2s ease, box-shadow .2s ease;
   transform: translateY(0);
 }
 .edu-item-card:hover{
   transform: translateY(-4px);
-  box-shadow: 0 16px 28px rgba(80,75,56,.18);
+  box-shadow: 0 16px 28px var(--shadow-soft);
 }
 .edu-year{ font-weight: 600; letter-spacing: .2px; font-size: 12px; }
 .edu-school{ color: var(--text); font-size: 12px; }
@@ -1082,7 +1113,7 @@ kbd{
 .exp-card > *{ position: relative; z-index: 1; }
 .exp-card:hover{
   transform: translateY(-4px);
-  box-shadow: 0 18px 34px rgba(80,75,56,.18);
+  box-shadow: 0 18px 34px var(--shadow-soft);
 }
 .exp-title{ letter-spacing: .4px; font-size: 16px; }
 
@@ -1113,8 +1144,8 @@ kbd{
   border: 1.5px solid var(--border);
   box-shadow:
     0 12px 24px var(--shadow),
-    inset 0 0 0 1px rgba(80,75,56,.08),
-    inset 0 1px 0 rgba(255,255,255,.5);
+    inset 0 0 0 1px var(--pattern),
+    inset 0 1px 0 var(--light-50);
   transition: transform .2s ease, box-shadow .2s ease;
   transform: translateY(0);
   position: relative;
@@ -1125,7 +1156,7 @@ kbd{
   position:absolute;
   inset: -40% 0 auto 0;
   height: 140%;
-  background: linear-gradient(120deg, transparent 25%, rgba(255,255,255,.45) 50%, transparent 75%);
+  background: linear-gradient(120deg, transparent 25%, var(--light-45) 50%, transparent 75%);
   opacity: 0;
   transform: translateX(-60%);
   transition: transform .6s ease, opacity .4s ease;
@@ -1171,7 +1202,7 @@ kbd{
   text-indent: -9999px;
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: 0 10px 20px rgba(80,75,56,.16);
+  box-shadow: 0 10px 20px var(--shadow-soft);
 }
 
 .slide[data-title="กิจกรรม"] .activity-grid{
@@ -1212,7 +1243,7 @@ kbd{
   text-indent: -9999px;
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: 0 10px 20px rgba(80,75,56,.16);
+  box-shadow: 0 10px 20px var(--shadow-soft);
 }
 @media (max-width: 720px){
   .slide[data-title="เกียรติบัติ"] .activity-grid{
@@ -1255,7 +1286,7 @@ kbd{
 .modal-backdrop{
   position: absolute;
   inset: 0;
-  background: rgba(80,75,56,.42);
+  background: var(--overlay);
   backdrop-filter: blur(8px) saturate(120%);
 }
 .modal-panel{
@@ -1267,7 +1298,7 @@ kbd{
   border-radius: 24px;
   background: var(--card);
   border: 2px solid var(--border-strong);
-  box-shadow: 0 24px 60px var(--shadow-strong), 0 0 0 1px rgba(185,178,138,.25) inset;
+  box-shadow: 0 24px 60px var(--shadow-strong), 0 0 0 1px var(--accent-25) inset;
   backdrop-filter: blur(18px);
   transform: translateY(8px) scale(.98);
   transition: transform .2s ease;
@@ -1328,7 +1359,7 @@ kbd{
   background: var(--card);
   color: var(--text);
   cursor: pointer;
-  box-shadow: 0 10px 18px rgba(80,75,56,.16);
+  box-shadow: 0 10px 18px var(--shadow-soft);
 }
 .modal-nav.prev{ left: 10px; }
 .modal-nav.next{ right: 10px; }
@@ -1432,7 +1463,7 @@ kbd{
 .dot:hover{
   transform: scale(1.12);
   border-color: var(--accent);
-  box-shadow: 0 6px 16px rgba(80,75,56,.16);
+  box-shadow: 0 6px 16px var(--shadow-soft);
 }
 .dot.is-active{
   background: var(--accent-2);
@@ -1617,3 +1648,4 @@ kbd{
     transition: none;
   }
 }
+
