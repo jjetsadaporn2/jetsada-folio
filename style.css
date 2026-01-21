@@ -626,7 +626,7 @@ body::after{
 }
 .avatar{
   width: 100%;
-  height: clamp(240px, 40vw, 360px);
+  height: clamp(440px, 40vw, 360px);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
@@ -637,7 +637,7 @@ body::after{
   content:"";
   position:absolute;
   inset:0;
-  background: url("png/image_11zon.png") center/cover;
+  background: url("images/me3.png") center/cover;
   filter: grayscale(1) contrast(1.05);
   transition: filter .4s ease, transform .6s ease;
   transform: scale(1.02);
