@@ -37,20 +37,20 @@
     {
       id: "act2",
       type: "activity",
-      title: "กิจกรรม: วิทยากรงาน OpenHouse ของวิทยาลัย",
-      subtitle: "บทบาท: วิทยากร",
+      title: "กิจกรรม: เข้าร่วมแข่งขันทักษะวิชาชีพ",
+      subtitle: "บทบาท: นักศึกษา",
       year: "ปี: 2025",
       description: "คอยบรรยายเกี่ยวกับการเรียนในแผนก และ สอนให้รู้จักกับ AI ว่าสามารถนำไปใช้ร่วมกับงานอะไรได้บ้าง",
-      images: ["../images/ac5.jpg", "../image.png"],
+      images: ["../images/ac8.png", "../images/ac9.png"],
     },
     {
       id: "act3",
       type: "activity",
-      title: "กิจกรรม: กีฬาช่างภายในวิทยาลัย",
-      subtitle: "บทบาท: --",
-      year: "ปี: 2025",
+      title: "กิจกรรม: รับเกียรติบัตรเกียรตินิยม",
+      subtitle: "บทบาท: นักศึกษา",
+      year: "ปี: 2024",
       description: "--",
-      images: ["../Image (2).jpg", "../image.png"],
+      images: ["../images/ac6.png"],
     } 
   ];
   const awardsData = [
