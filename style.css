@@ -367,8 +367,9 @@ body::after{
   .slide-inner{ min-height: auto; }
 }
 
-.slide[data-title="ปก"] .grid-2{ grid-template-columns: .85fr 1.15fr; }
-.slide[data-title="ปก"] .stack{ align-self: end; }
+/* Home slide: center the left content block a bit higher */
+.slide[data-title="ปก"] .grid-2{ grid-template-columns: .85fr 1.15fr; align-items: center; }
+.slide[data-title="ปก"] .stack{ align-self: center; margin-top: -8px; }
 
 /* Typography */
 .h-hero{
@@ -626,7 +627,7 @@ body::after{
 }
 .avatar{
   width: 100%;
-  height: clamp(440px, 40vw, 360px);
+  height: clamp(540px, 40vw, 360px);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
@@ -1648,4 +1649,5 @@ kbd{
     transition: none;
   }
 }
+
 
