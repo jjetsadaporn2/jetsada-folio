@@ -8,7 +8,6 @@
   const yearEl = document.getElementById("year");
 
   const btnStartOver = document.getElementById("btnStartOver");
-  const btnCopyLink = document.getElementById("btnCopyLink");
   const modal = document.getElementById("activityModal");
   const modalTitle = document.getElementById("activityModalTitle");
   const modalDesc = document.getElementById("activityModalDesc");
@@ -40,7 +39,7 @@
       title: "กิจกรรม: เข้าร่วมแข่งขันทักษะวิชาชีพ",
       subtitle: "บทบาท: นักศึกษา",
       year: "ปี: 2025",
-      description: "คอยบรรยายเกี่ยวกับการเรียนในแผนก และ สอนให้รู้จักกับ AI ว่าสามารถนำไปใช้ร่วมกับงานอะไรได้บ้าง",
+      description: "เข้าร่วมแข่งขันทักษะวิชาชีพ",
       images: ["../images/ac8.png", "../images/ac9.png"],
     },
     {
@@ -82,19 +81,44 @@
       description: "",
       images: ["../images/cer4.jpg"],
     },
+    {
+      id: "award5",
+      type: "award",
+      title: "",
+      description: "",
+      images: ["../images/cer5.png"],
+    },
   ];
-  const itemMap = new Map([...activitiesData, ...awardsData].map((a) => [a.id, a]));
+  const transcriptData = [
+    {
+      id: "gpa1",
+      type: "transcript",
+      title: "",
+      description: "",
+      images: ["../images/gpa3.png", "../images/gpa4.png"],
+    },
+    {
+      id: "gpa2",
+      type: "transcript",
+      title: "",
+      description: "",
+      images: ["../images/gpa1.png", "../images/gpa2.png"],
+    },
+  ];
+  const itemMap = new Map([...activitiesData, ...awardsData, ...transcriptData].map((a) => [a.id, a]));
 
   // ---------- Helpers ----------
   const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
   const isModalOpen = () => modal && modal.classList.contains("is-open");
+
+  const resolveImageSrc = (src) => (src.includes("/") ? src : `png/${src}`);
 
   function setModalImage(i) {
     if (!currentActivity || !modalImage) return;
     const images = currentActivity.images;
     const next = (i + images.length) % images.length;
     modalIndex = next;
-    modalImage.src = `png/${images[modalIndex]}`;
+    modalImage.src = resolveImageSrc(images[modalIndex]);
     modalImage.alt = `${currentActivity.title} ${modalIndex + 1}`;
 
     if (modalThumbs) {
@@ -113,7 +137,7 @@
       if (idx === modalIndex) btn.classList.add("is-active");
 
       const img = document.createElement("img");
-      img.src = `png/${name}`;
+      img.src = resolveImageSrc(name);
       img.alt = `${currentActivity.title} ${idx + 1}`;
       btn.appendChild(img);
 
@@ -131,14 +155,24 @@
     modalIndex = 0;
     if (modal) modal.dataset.type = data.type || "activity";
 
+    const hideMeta = data.type === "transcript";
     if (data.type === "award") {
       modalTitle && (modalTitle.textContent = "");
       modalDesc && (modalDesc.textContent = "");
+      modalTitle && (modalTitle.hidden = false);
+      modalDesc && (modalDesc.hidden = false);
+    } else if (hideMeta) {
+      modalTitle && (modalTitle.textContent = "");
+      modalDesc && (modalDesc.textContent = "");
+      modalTitle && (modalTitle.hidden = true);
+      modalDesc && (modalDesc.hidden = true);
     } else {
       const meta = [data.subtitle, data.year].filter(Boolean).join(" • ");
       const desc = data.description ? ` — ${data.description}` : "";
       modalTitle && (modalTitle.textContent = data.title || "");
       modalDesc && (modalDesc.textContent = meta ? `${meta}${desc}` : data.description || "");
+      modalTitle && (modalTitle.hidden = false);
+      modalDesc && (modalDesc.hidden = false);
     }
     renderThumbs(data.images);
     setModalImage(0);
@@ -264,11 +298,19 @@
     touchStartY = t.clientY;
   }
   function onTouchEnd(e) {
-    if (isLock) return;
-
     const t = e.changedTouches[0];
     const dx = t.clientX - touchStartX;
     const dy = t.clientY - touchStartY;
+
+    if (isModalOpen()) {
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) setModalImage(modalIndex + 1);
+        else setModalImage(modalIndex - 1);
+      }
+      return;
+    }
+
+    if (isLock) return;
 
     // prefer horizontal swipe
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
@@ -291,25 +333,6 @@
   }
 
   // ---------- Extra buttons ----------
-  async function copyLink() {
-    const url = location.href;
-    try {
-      await navigator.clipboard.writeText(url);
-      btnCopyLink.textContent = "คัดลอกแล้ว ✓";
-      setTimeout(() => (btnCopyLink.textContent = "คัดลอกลิงก์หน้านี้"), 1200);
-    } catch {
-      // fallback
-      const ta = document.createElement("textarea");
-      ta.value = url;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      ta.remove();
-      btnCopyLink.textContent = "คัดลอกแล้ว ✓";
-      setTimeout(() => (btnCopyLink.textContent = "คัดลอกลิงก์หน้านี้"), 1200);
-    }
-  }
-
   // ---------- Init ----------
   buildDots();
   yearEl && (yearEl.textContent = new Date().getFullYear());
@@ -318,7 +341,6 @@
   btnNext.addEventListener("click", goNext);
 
   btnStartOver && btnStartOver.addEventListener("click", () => setActive(0));
-  btnCopyLink && btnCopyLink.addEventListener("click", copyLink);
 
   const activityButtons = Array.from(document.querySelectorAll(".activity-btn"));
   activityButtons.forEach((btn) => {
@@ -326,6 +348,12 @@
     if (!card) return;
     const id = card.dataset.item;
     btn.addEventListener("click", () => openModalById(id));
+  });
+
+  const transcriptCards = Array.from(document.querySelectorAll(".gpa-card[data-item]"));
+  transcriptCards.forEach((card) => {
+    const id = card.dataset.item;
+    card.addEventListener("click", () => openModalById(id));
   });
 
   modalClose && modalClose.addEventListener("click", closeModal);
